@@ -10,9 +10,7 @@
 		3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBC22F650920070D3DB /* AppDelegate.swift */; };
 		3961BCBF22F650920070D3DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* FirstViewController.swift */; };
 		3961BCC122F650920070D3DB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* SecondViewController.swift */; };
-		3961BCC422F650920070D3DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC222F650920070D3DB /* Main.storyboard */; };
 		3961BCC622F650930070D3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC522F650930070D3DB /* Assets.xcassets */; };
-		3961BCC922F650930070D3DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC722F650930070D3DB /* LaunchScreen.storyboard */; };
 		3961BCD422F650930070D3DB /* DogDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCD322F650930070D3DB /* DogDiaryTests.swift */; };
 		3961BCDF22F650930070D3DB /* DogDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */; };
 		39E87F9722F6A1B3001DA62A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E87F9622F6A1B3001DA62A /* GoogleService-Info.plist */; };
@@ -49,9 +47,7 @@
 		3961BCBC22F650920070D3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3961BCBE22F650920070D3DB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3961BCC022F650920070D3DB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		3961BCC322F650920070D3DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3961BCC522F650930070D3DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3961BCC822F650930070D3DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3961BCCA22F650930070D3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3961BCCF22F650930070D3DB /* DogDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCD322F650930070D3DB /* DogDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDiaryTests.swift; sourceTree = "<group>"; };
@@ -124,13 +120,12 @@
 		3961BCBB22F650920070D3DB /* DogDiary */ = {
 			isa = PBXGroup;
 			children = (
-				39E87F9A22F6A440001DA62A /* Main */,
 				39E87F9622F6A1B3001DA62A /* GoogleService-Info.plist */,
 				3961BCBC22F650920070D3DB /* AppDelegate.swift */,
+				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
 				3961BCBE22F650920070D3DB /* FirstViewController.swift */,
 				3961BCC022F650920070D3DB /* SecondViewController.swift */,
 				3961BCC522F650930070D3DB /* Assets.xcassets */,
-				3961BCC722F650930070D3DB /* LaunchScreen.storyboard */,
 				3961BCCA22F650930070D3DB /* Info.plist */,
 				39E87F9B22F6A58C001DA62A /* Utils.swift */,
 				39E87F9D22F6A5FD001DA62A /* User.swift */,
@@ -154,15 +149,6 @@
 				3961BCE022F650930070D3DB /* Info.plist */,
 			);
 			path = DogDiaryUITests;
-			sourceTree = "<group>";
-		};
-		39E87F9A22F6A440001DA62A /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				3961BCC222F650920070D3DB /* Main.storyboard */,
-				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		776D1CD364133CD19879462B /* Pods */ = {
@@ -297,10 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3961BCC922F650930070D3DB /* LaunchScreen.storyboard in Resources */,
 				39E87F9722F6A1B3001DA62A /* GoogleService-Info.plist in Resources */,
 				3961BCC622F650930070D3DB /* Assets.xcassets in Resources */,
-				3961BCC422F650920070D3DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,25 +469,6 @@
 			targetProxy = 3961BCDB22F650930070D3DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3961BCC222F650920070D3DB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3961BCC322F650920070D3DB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3961BCC722F650930070D3DB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3961BCC822F650930070D3DB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3961BCE122F650930070D3DB /* Debug */ = {

@@ -12,7 +12,9 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        self.title = "History"
+        self.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
     }
 
 

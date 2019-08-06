@@ -23,9 +23,13 @@ class MainTabBarViewController: UITabBarController {
         if Auth.auth().currentUser == nil {
             openLoginView()
         } else {
-            print("[MainTabBarController] Current user is \"\(Auth.auth().currentUser.debugDescription)\"")
+            debugPrint("[MainTabBarController] Current user is \"\(Auth.auth().currentUser.debugDescription)\"")
             self.selectedIndex = 0
         }
+
+        let firstVC = FirstViewController()
+        let secondVC = SecondViewController()
+        self.viewControllers = [firstVC, secondVC]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +62,8 @@ extension MainTabBarViewController: FUIAuthDelegate {
             return
         }
         
-        let uid = authDataResult!.user.uid
-        let email = authDataResult!.user.email ?? "none"
+        let uid: String = authDataResult!.user.uid
+        let email: String = authDataResult!.user.email ?? "none"
         debugPrint("[MainTabBarController] uid is \"\(uid)\"")
         debugPrint("[MainTabBarController] email is \"\(email)\"")
     }
