@@ -15,6 +15,15 @@ class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let firstVC = FirstViewController()
+        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        
+        let secondVC = SecondViewController()
+        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        
+        let viewControllerList = [firstVC, secondVC]
+        self.viewControllers = viewControllerList.map { UINavigationController(rootViewController: $0) }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -26,14 +35,6 @@ class MainTabBarViewController: UITabBarController {
             debugPrint("[MainTabBarController] Current user is \"\(Auth.auth().currentUser.debugDescription)\"")
             self.selectedIndex = 0
         }
-
-        let firstVC = FirstViewController()
-        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
-        
-        let secondVC = SecondViewController()
-        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
-        
-        self.viewControllers = [firstVC, secondVC]
     }
     
     override func viewWillAppear(_ animated: Bool) {
