@@ -12,9 +12,6 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Log"
-        self.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 0)
     }
 
 

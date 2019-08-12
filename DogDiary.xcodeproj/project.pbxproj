@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */; };
 		3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBC22F650920070D3DB /* AppDelegate.swift */; };
 		3961BCBF22F650920070D3DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* FirstViewController.swift */; };
 		3961BCC122F650920070D3DB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* SecondViewController.swift */; };
 		3961BCC622F650930070D3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC522F650930070D3DB /* Assets.xcassets */; };
 		3961BCD422F650930070D3DB /* DogDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCD322F650930070D3DB /* DogDiaryTests.swift */; };
 		3961BCDF22F650930070D3DB /* DogDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */; };
-		39E87F9722F6A1B3001DA62A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39E87F9622F6A1B3001DA62A /* GoogleService-Info.plist */; };
 		39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */; };
 		39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9B22F6A58C001DA62A /* Utils.swift */; };
 		39E87F9E22F6A5FD001DA62A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9D22F6A5FD001DA62A /* User.swift */; };
@@ -43,6 +43,7 @@
 		0832942E991A79967E0F29FB /* Pods-DogDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDiary/Pods-DogDiary.release.xcconfig"; sourceTree = "<group>"; };
 		08B33FF4569793DCB6EA22CA /* Pods-DogDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogDiary/Pods-DogDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		126DDCD6C8F641580BA17B75 /* Pods-DogDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDiaryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDiaryUITests/Pods-DogDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3961BCB922F650920070D3DB /* DogDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCBC22F650920070D3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3961BCBE22F650920070D3DB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		3961BCDA22F650930070D3DB /* DogDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDiaryUITests.swift; sourceTree = "<group>"; };
 		3961BCE022F650930070D3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39E87F9622F6A1B3001DA62A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		39E87F9B22F6A58C001DA62A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39E87F9D22F6A5FD001DA62A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		3961BCBB22F650920070D3DB /* DogDiary */ = {
 			isa = PBXGroup;
 			children = (
-				39E87F9622F6A1B3001DA62A /* GoogleService-Info.plist */,
+				39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */,
 				3961BCBC22F650920070D3DB /* AppDelegate.swift */,
 				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
 				3961BCBE22F650920070D3DB /* FirstViewController.swift */,
@@ -283,8 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39E87F9722F6A1B3001DA62A /* GoogleService-Info.plist in Resources */,
 				3961BCC622F650930070D3DB /* Assets.xcassets in Resources */,
+				39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

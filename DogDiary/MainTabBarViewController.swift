@@ -28,7 +28,11 @@ class MainTabBarViewController: UITabBarController {
         }
 
         let firstVC = FirstViewController()
+        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        
         let secondVC = SecondViewController()
+        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        
         self.viewControllers = [firstVC, secondVC]
     }
     
