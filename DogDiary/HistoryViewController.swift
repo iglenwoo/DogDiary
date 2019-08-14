@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  HistoryViewController.swift
 //  DogDiary
 //
 //  Created by Ingyu Woo on 8/3/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "First"
+        title = "History"
     }
 
 

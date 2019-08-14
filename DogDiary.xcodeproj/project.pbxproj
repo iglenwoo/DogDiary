@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */; };
 		3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBC22F650920070D3DB /* AppDelegate.swift */; };
-		3961BCBF22F650920070D3DB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* FirstViewController.swift */; };
-		3961BCC122F650920070D3DB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* SecondViewController.swift */; };
+		3961BCBF22F650920070D3DB /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* TrackViewController.swift */; };
+		3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* HistoryViewController.swift */; };
 		3961BCC622F650930070D3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC522F650930070D3DB /* Assets.xcassets */; };
 		3961BCD422F650930070D3DB /* DogDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCD322F650930070D3DB /* DogDiaryTests.swift */; };
 		3961BCDF22F650930070D3DB /* DogDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */; };
+		39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C22303D840003E80C7 /* SettingViewController.swift */; };
+		39A680C52303E373003E80C7 /* DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C42303E373003E80C7 /* DogViewController.swift */; };
 		39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */; };
 		39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9B22F6A58C001DA62A /* Utils.swift */; };
 		39E87F9E22F6A5FD001DA62A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9D22F6A5FD001DA62A /* User.swift */; };
@@ -46,8 +48,8 @@
 		39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3961BCB922F650920070D3DB /* DogDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCBC22F650920070D3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3961BCBE22F650920070D3DB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3961BCC022F650920070D3DB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3961BCBE22F650920070D3DB /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
+		3961BCC022F650920070D3DB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		3961BCC522F650930070D3DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3961BCCA22F650930070D3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3961BCCF22F650930070D3DB /* DogDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,8 @@
 		3961BCDA22F650930070D3DB /* DogDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDiaryUITests.swift; sourceTree = "<group>"; };
 		3961BCE022F650930070D3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39A680C22303D840003E80C7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		39A680C42303E373003E80C7 /* DogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewController.swift; sourceTree = "<group>"; };
 		39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		39E87F9B22F6A58C001DA62A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39E87F9D22F6A5FD001DA62A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,8 +127,10 @@
 				39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */,
 				3961BCBC22F650920070D3DB /* AppDelegate.swift */,
 				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
-				3961BCBE22F650920070D3DB /* FirstViewController.swift */,
-				3961BCC022F650920070D3DB /* SecondViewController.swift */,
+				39A680C22303D840003E80C7 /* SettingViewController.swift */,
+				3961BCBE22F650920070D3DB /* TrackViewController.swift */,
+				39A680C42303E373003E80C7 /* DogViewController.swift */,
+				3961BCC022F650920070D3DB /* HistoryViewController.swift */,
 				3961BCC522F650930070D3DB /* Assets.xcassets */,
 				3961BCCA22F650930070D3DB /* Info.plist */,
 				39E87F9B22F6A58C001DA62A /* Utils.swift */,
@@ -433,11 +439,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */,
-				3961BCC122F650920070D3DB /* SecondViewController.swift in Sources */,
+				3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */,
 				39E87F9E22F6A5FD001DA62A /* User.swift in Sources */,
+				39A680C52303E373003E80C7 /* DogViewController.swift in Sources */,
 				39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */,
 				3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */,
-				3961BCBF22F650920070D3DB /* FirstViewController.swift in Sources */,
+				39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */,
+				3961BCBF22F650920070D3DB /* TrackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

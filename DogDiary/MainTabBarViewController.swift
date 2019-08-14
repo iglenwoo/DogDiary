@@ -16,14 +16,17 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstVC = FirstViewController()
-        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        let trackVC = TrackViewController()
+        trackVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         
-        let secondVC = SecondViewController()
-        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        let historyVC = HistoryViewController()
+        historyVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
         
-        let viewControllerList = [firstVC, secondVC]
-        self.viewControllers = viewControllerList.map { UINavigationController(rootViewController: $0) }
+        let settingVC = SettingViewController()
+        settingVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+        
+        let vcs = [trackVC, historyVC, settingVC]
+        self.viewControllers = vcs.map { UINavigationController(rootViewController: $0) }
     }
 
     override func viewDidAppear(_ animated: Bool) {
