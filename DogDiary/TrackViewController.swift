@@ -22,15 +22,13 @@ class TrackViewController: UIViewController {
     }
     
     @IBAction func yourButtonClickAction(sender: UIBarButtonItem) {
-        //TODO: fix this, not working as expected
-        let popover = DogViewController()
-        popover.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(closePopover))
-        popover.modalPresentationStyle = .popover
-        if let presentation = popover.popoverPresentationController {
-//            presentation.barButtonItem = navigationItem.rightBarButtonItem
-            presentation.barButtonItem = sender
+        let dogVC = DogViewController()
+        let nav = UINavigationController(rootViewController: dogVC)
+        nav.modalPresentationStyle = .popover
+        if let presentation = nav.popoverPresentationController {
+            presentation.sourceView = self.view
         }
-        present(popover, animated: true, completion: nil)
+        present(nav, animated: true, completion: nil)
     }
     
     //TODO: delete it maybe
