@@ -13,15 +13,10 @@ class TrackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tracking"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Dog", style: .plain, target: self, action: #selector(yourButtonClickAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myDogTapped))
     }
 
     @objc func myDogTapped() {
-        //TODO: check if my dog is already set
-        //TODO: open a popup
-    }
-    
-    @IBAction func yourButtonClickAction(sender: UIBarButtonItem) {
         let dogVC = DogViewController()
         let nav = UINavigationController(rootViewController: dogVC)
         nav.modalPresentationStyle = .popover
@@ -30,10 +25,5 @@ class TrackViewController: UIViewController {
         }
         present(nav, animated: true, completion: nil)
     }
-    
-    //TODO: delete it maybe
-    @objc func closePopover() {
-    
-    }
-}
 
+}
