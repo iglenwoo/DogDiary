@@ -16,7 +16,13 @@ class DogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         debugPrint("DogViewController viewDidLoad")
+        
+        buildUI()
+    }
+    
+    private func buildUI() {
         title = "Dog"
+
         let closeButton: UIBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeTapped))
         self.navigationItem.leftBarButtonItem = closeButton
     }
@@ -56,16 +62,7 @@ class DogViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle!)
         debugPrint("[DogViewController] removeStateDidChangeListener called")
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
 }
 
 extension DogViewController: FUIAuthDelegate {
