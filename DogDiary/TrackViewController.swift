@@ -30,6 +30,11 @@ class TrackViewController: UIViewController {
         
         view.addSubview(dogTV)
         
+        dogTV.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8.0).isActive = true
+        dogTV.topAnchor.constraint(equalTo: view.topAnchor, constant: 8.0).isActive = true
+        dogTV.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8.0).isActive = true
+        dogTV.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8.0).isActive = true
+        
         dogTV.delegate = self
         dogTV.dataSource = self
         dogTV.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
