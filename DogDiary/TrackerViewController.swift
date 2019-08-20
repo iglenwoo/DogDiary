@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrackViewController: UIViewController {
+class TrackerViewController: UIViewController {
 
     // TODO: finish dog tableview
     let dogTV = UITableView()
@@ -22,7 +22,7 @@ class TrackViewController: UIViewController {
     
     private func setupTrackVC() {
         title = "Tracking"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myDogTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myPackTapped))
     }
     
     private func setupDogTV() {
@@ -40,8 +40,8 @@ class TrackViewController: UIViewController {
         dogTV.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-    @objc func myDogTapped() {
-        let dogVC = DogViewController()
+    @objc func myPackTapped() {
+        let dogVC = MyPackViewController()
         let nav = UINavigationController(rootViewController: dogVC)
         nav.modalPresentationStyle = .popover
         if let presentation = nav.popoverPresentationController {
@@ -52,7 +52,7 @@ class TrackViewController: UIViewController {
 
 }
 
-extension TrackViewController: UITableViewDelegate, UITableViewDataSource {
+extension TrackerViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {

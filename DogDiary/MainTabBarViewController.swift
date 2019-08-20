@@ -16,7 +16,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let trackVC = TrackViewController()
+        let trackVC = TrackerViewController()
         trackVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         
         let historyVC = HistoryViewController()

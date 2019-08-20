@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseUI
 
-class DogViewController: UIViewController {
+class MyPackViewController: UIViewController {
 
     var handle: AuthStateDidChangeListenerHandle?
     
@@ -65,7 +65,7 @@ class DogViewController: UIViewController {
 
 }
 
-extension DogViewController: FUIAuthDelegate {
+extension MyPackViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if error != nil {
             debugPrint(error?.localizedDescription ?? "error?")
@@ -79,7 +79,7 @@ extension DogViewController: FUIAuthDelegate {
     }
 }
 
-extension DogViewController {
+extension MyPackViewController {
     func openLoginView() {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
