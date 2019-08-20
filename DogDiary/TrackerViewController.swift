@@ -9,37 +9,53 @@
 import UIKit
 
 class TrackerViewController: UIViewController {
-
+    
     // TODO: finish dog tableview
-    let dogTV = UITableView()
+    var safeArea: UILayoutGuide!
+    
+    var selectedDog = "Moongchi"
+    let button =  UIButton(type: .custom)
+    
+    let logOptionsTV = UITableView()
+    let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTrackVC()
-        setupDogTV()
+        safeArea = view.layoutMarginsGuide
+        setupNav()
+        setupTrackV()
     }
     
-    private func setupTrackVC() {
-        title = "Tracking"
+    private func setupNav() {
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        button.setTitle(selectedDog, for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(clickOnButton), for: .touchUpInside)
+        navigationItem.titleView = button
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myPackTapped))
     }
     
-    private func setupDogTV() {
-        dogTV.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(dogTV)
-        
-        dogTV.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8.0).isActive = true
-        dogTV.topAnchor.constraint(equalTo: view.topAnchor, constant: 8.0).isActive = true
-        dogTV.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8.0).isActive = true
-        dogTV.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8.0).isActive = true
-        
-        dogTV.delegate = self
-        dogTV.dataSource = self
-        dogTV.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    @objc func clickOnButton() {
+        // TODO: Show a picker
+        selectedDog = "M9"
+        button.setTitle(selectedDog, for: .normal)
     }
-
+    
+    private func setupTrackV() {
+        logOptionsTV.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logOptionsTV)
+        
+        logOptionsTV.dataSource = self
+        logOptionsTV.delegate = self
+        logOptionsTV.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        logOptionsTV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        logOptionsTV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        logOptionsTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        logOptionsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
     @objc func myPackTapped() {
         let dogVC = MyPackViewController()
         let nav = UINavigationController(rootViewController: dogVC)
@@ -49,7 +65,7 @@ class TrackerViewController: UIViewController {
         }
         present(nav, animated: true, completion: nil)
     }
-
+    
 }
 
 extension TrackerViewController: UITableViewDelegate, UITableViewDataSource {
@@ -58,13 +74,13 @@ extension TrackerViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 25
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         cell.textLabel?.text = "\(indexPath)"
         

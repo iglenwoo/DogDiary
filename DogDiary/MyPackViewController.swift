@@ -10,7 +10,10 @@ import UIKit
 import FirebaseUI
 
 class MyPackViewController: UIViewController {
-
+    
+    //TODO: add new dog
+    //TODO: fetch dog list
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
@@ -21,8 +24,8 @@ class MyPackViewController: UIViewController {
     }
     
     private func buildUI() {
-        title = "Dog"
-
+        title = "My Pack"
+        
         let closeButton: UIBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeTapped))
         self.navigationItem.leftBarButtonItem = closeButton
     }
@@ -30,7 +33,7 @@ class MyPackViewController: UIViewController {
     @objc func closeTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -62,7 +65,7 @@ class MyPackViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle!)
         debugPrint("[DogViewController] removeStateDidChangeListener called")
     }
-
+    
 }
 
 extension MyPackViewController: FUIAuthDelegate {
