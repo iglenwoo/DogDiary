@@ -11,8 +11,6 @@ import UIKit
 class TrackerViewController: UIViewController {
     
     // TODO: finish dog tableview
-    var safeArea: UILayoutGuide!
-    
     var selectedDog = "Moongchi"
     let button =  UIButton(type: .custom)
     
@@ -21,7 +19,6 @@ class TrackerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        safeArea = view.layoutMarginsGuide
         setupNav()
         setupTrackV()
     }
@@ -30,16 +27,26 @@ class TrackerViewController: UIViewController {
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         button.setTitle(selectedDog, for: .normal)
         button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self, action: #selector(clickOnButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(changeDog), for: .touchUpInside)
         navigationItem.titleView = button
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myPackTapped))
     }
     
-    @objc func clickOnButton() {
+    @objc func changeDog() {
         // TODO: Show a picker
         selectedDog = "M9"
         button.setTitle(selectedDog, for: .normal)
+    }
+    
+    @objc func myPackTapped() {
+        let dogVC = MyPackViewController()
+        let nav = UINavigationController(rootViewController: dogVC)
+        nav.modalPresentationStyle = .popover
+        if let presentation = nav.popoverPresentationController {
+            presentation.sourceView = self.view
+        }
+        present(nav, animated: true, completion: nil)
     }
     
     private func setupTrackV() {
@@ -55,17 +62,6 @@ class TrackerViewController: UIViewController {
         logOptionsTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         logOptionsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
-    @objc func myPackTapped() {
-        let dogVC = MyPackViewController()
-        let nav = UINavigationController(rootViewController: dogVC)
-        nav.modalPresentationStyle = .popover
-        if let presentation = nav.popoverPresentationController {
-            presentation.sourceView = self.view
-        }
-        present(nav, animated: true, completion: nil)
-    }
-    
 }
 
 extension TrackerViewController: UITableViewDelegate, UITableViewDataSource {
