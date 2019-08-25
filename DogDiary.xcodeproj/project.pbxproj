@@ -14,6 +14,7 @@
 		3961BCC622F650930070D3DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3961BCC522F650930070D3DB /* Assets.xcassets */; };
 		3961BCD422F650930070D3DB /* DogDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCD322F650930070D3DB /* DogDiaryTests.swift */; };
 		3961BCDF22F650930070D3DB /* DogDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */; };
+		3979F0672313196500AA9A1F /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3979F0662313196500AA9A1F /* Dog.swift */; };
 		39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C22303D840003E80C7 /* SettingViewController.swift */; };
 		39A680C52303E373003E80C7 /* MyPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C42303E373003E80C7 /* MyPackViewController.swift */; };
 		39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */; };
@@ -59,6 +60,7 @@
 		3961BCDA22F650930070D3DB /* DogDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCDE22F650930070D3DB /* DogDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDiaryUITests.swift; sourceTree = "<group>"; };
 		3961BCE022F650930070D3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3979F0662313196500AA9A1F /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		39A680C22303D840003E80C7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		39A680C42303E373003E80C7 /* MyPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPackViewController.swift; sourceTree = "<group>"; };
 		39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				3961BCCA22F650930070D3DB /* Info.plist */,
 				39E87F9B22F6A58C001DA62A /* Utils.swift */,
 				39E87F9D22F6A5FD001DA62A /* User.swift */,
+				3979F0662313196500AA9A1F /* Dog.swift */,
 			);
 			path = DogDiary;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */,
 				3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */,
 				39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */,
+				3979F0672313196500AA9A1F /* Dog.swift in Sources */,
 				3961BCBF22F650920070D3DB /* TrackerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
