@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddDogViewController: UIViewController {
+class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dogDetailTableView: UITableView = UITableView()
     var dogNameText: UITextField = UITextField()
@@ -51,9 +51,7 @@ class AddDogViewController: UIViewController {
         dogDetailTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         dogDetailTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-}
-
-extension AddDogViewController: UITableViewDelegate, UITableViewDataSource {
+    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -85,4 +83,5 @@ extension AddDogViewController: UITableViewDelegate, UITableViewDataSource {
         default: fatalError("Unknown section")
         }
     }
+
 }

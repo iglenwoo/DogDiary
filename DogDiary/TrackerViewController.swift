@@ -27,7 +27,7 @@ enum TrackerOption: String, CaseIterable {
     }
 }
 
-class TrackerViewController: UIViewController {
+class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // TODO: hook Firebase
     var selectedDog = "Moongchi"
@@ -86,9 +86,7 @@ class TrackerViewController: UIViewController {
         logOptionsTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         logOptionsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-}
-
-extension TrackerViewController: UITableViewDelegate, UITableViewDataSource {
+    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
