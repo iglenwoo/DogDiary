@@ -19,6 +19,7 @@
 		39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */; };
 		39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9B22F6A58C001DA62A /* Utils.swift */; };
 		39E87F9E22F6A5FD001DA62A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9D22F6A5FD001DA62A /* User.swift */; };
+		39F33E142311E47700AF5F5B /* AddDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F33E132311E47700AF5F5B /* AddDogViewController.swift */; };
 		492139F8AB0C8FA0BBEDA44A /* Pods_DogDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977371A31111C69290ED97FC /* Pods_DogDiary.framework */; };
 		8EAC48ADE10140811AEF4D92 /* Pods_DogDiaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0CB7572D98E0A605DD8B65 /* Pods_DogDiaryUITests.framework */; };
 		DCA6501672A286AFC4496098 /* Pods_DogDiaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65464AC6CE78D70EED867FC5 /* Pods_DogDiaryTests.framework */; };
@@ -63,6 +64,7 @@
 		39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		39E87F9B22F6A58C001DA62A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39E87F9D22F6A5FD001DA62A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39F33E132311E47700AF5F5B /* AddDogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogViewController.swift; sourceTree = "<group>"; };
 		3E0CB7572D98E0A605DD8B65 /* Pods_DogDiaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogDiaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65464AC6CE78D70EED867FC5 /* Pods_DogDiaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogDiaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		973A96E0C24050503EF01D84 /* Pods-DogDiaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDiaryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogDiaryUITests/Pods-DogDiaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
 				3961BCBE22F650920070D3DB /* TrackerViewController.swift */,
 				39A680C42303E373003E80C7 /* MyPackViewController.swift */,
+				39F33E132311E47700AF5F5B /* AddDogViewController.swift */,
 				3961BCC022F650920070D3DB /* HistoryViewController.swift */,
 				39A680C22303D840003E80C7 /* SettingViewController.swift */,
 				3961BCC522F650930070D3DB /* Assets.xcassets */,
@@ -320,18 +323,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DogDiary/Pods-DogDiary-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +405,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DogDiary/Pods-DogDiary-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
@@ -400,6 +414,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
@@ -439,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */,
+				39F33E142311E47700AF5F5B /* AddDogViewController.swift in Sources */,
 				3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */,
 				39E87F9E22F6A5FD001DA62A /* User.swift in Sources */,
 				39A680C52303E373003E80C7 /* MyPackViewController.swift in Sources */,

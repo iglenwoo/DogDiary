@@ -8,6 +8,7 @@ target 'DogDiary' do
   # Pods for DogDiary
   pod 'Firebase/Core'
   pod 'FirebaseUI/Google'
+  pod 'Firebase/Firestore'
 
   target 'DogDiaryTests' do
     inherit! :search_paths

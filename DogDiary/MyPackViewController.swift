@@ -7,90 +7,34 @@
 //
 
 import UIKit
-import FirebaseUI
+import FirebaseFirestore
 
 class MyPackViewController: UIViewController {
     
     //TODO: add new dog
     //TODO: fetch dog list
+//    let db = Firestore.firestore()
+//    var dogsRef: CollectionReference? = nil
     
-    var handle: AuthStateDidChangeListenerHandle?
+    let addDogViewController = AddDogViewController()
+    let logOptionsTV = UITableView()
+    let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint("DogViewController viewDidLoad")
-        
+//        dogsRef = db.collection("dogs")
         buildUI()
     }
     
     private func buildUI() {
         title = "My Pack"
         
-        let closeButton: UIBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeTapped))
-        self.navigationItem.leftBarButtonItem = closeButton
+        let addButton: UIBarButtonItem = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
-    @objc func closeTapped() {
-        self.dismiss(animated: true, completion: nil)
+    @objc func addTapped() {
+        self.navigationController?.pushViewController(addDogViewController, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if Auth.auth().currentUser == nil {
-            openLoginView()
-        } else {
-            debugPrint("[DogViewController] Current user is \"\(Auth.auth().currentUser.debugDescription)\"")
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        debugPrint("[DogViewController] viewWillAppear called")
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            debugPrint(user ?? "[DogViewController] addStateDidChangeListener called");
-            if ((user) == nil) {
-                debugPrint("[DogViewController] Signed out?")
-                self.openLoginView()
-            } else {
-                debugPrint("[DogViewController] Signed in?")
-            }
-        }
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        debugPrint("[DogViewController] viewWillDisappear called")
-        Auth.auth().removeStateDidChangeListener(handle!)
-        debugPrint("[DogViewController] removeStateDidChangeListener called")
-    }
-    
-}
-
-extension MyPackViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if error != nil {
-            debugPrint(error?.localizedDescription ?? "error?")
-            return
-        }
-        
-        let uid: String = authDataResult!.user.uid
-        let email: String = authDataResult!.user.email ?? "none"
-        debugPrint("[DogViewController] uid is \"\(uid)\"")
-        debugPrint("[DogViewController] email is \"\(email)\"")
-    }
-}
-
-extension MyPackViewController {
-    func openLoginView() {
-        let authUI = FUIAuth.defaultAuthUI()
-        authUI?.delegate = self
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth()]
-        
-        authUI?.providers = providers
-        let authViewController = authUI!.authViewController()
-        self.present(authViewController, animated: true, completion: nil)
-    }
 }

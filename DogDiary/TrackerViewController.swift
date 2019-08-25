@@ -66,13 +66,8 @@ class TrackerViewController: UIViewController {
     }
     
     @objc func myPackTapped() {
-        let dogVC = MyPackViewController()
-        let nav = UINavigationController(rootViewController: dogVC)
-        nav.modalPresentationStyle = .popover
-        if let presentation = nav.popoverPresentationController {
-            presentation.sourceView = self.view
-        }
-        present(nav, animated: true, completion: nil)
+        let myPackVC = MyPackViewController()
+        navigationController?.pushViewController(myPackVC, animated: true)
     }
     
     private func setupTrackV() {
