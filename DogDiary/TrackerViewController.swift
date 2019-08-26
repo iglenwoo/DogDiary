@@ -29,9 +29,6 @@ enum TrackerOption: String, CaseIterable {
 
 class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // TODO: hook Firebase
-    var selectedDog = "Moongchi"
-//    var dogs: [Dog]
     let button =  UIButton(type: .custom)
     
     var trackerOptions: [TrackerOption] = []
@@ -51,7 +48,9 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private func setupNav() {
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
-        button.setTitle(selectedDog, for: .normal)
+        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
+            button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
+        }
         button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(changeDog), for: .touchUpInside)
         navigationItem.titleView = button
@@ -61,8 +60,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @objc func changeDog() {
         // TODO: Show a picker to choose a dog
-        selectedDog = "M9"
-        button.setTitle(selectedDog, for: .normal)
+        button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
     }
     
     @objc func myPackTapped() {
@@ -119,7 +117,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO - open a view to confirm the log?
         // two lines below are only for testing
-        selectedDog = trackerOptions[indexPath.row].rawValue
-        button.setTitle(selectedDog, for: .normal)
+        LocalData.sharedInstance.selectedDogIndex = indexPath.row
+        button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
     }
 }

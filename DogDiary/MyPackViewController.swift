@@ -13,54 +13,53 @@ import FirebaseFirestore
 class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //TODO: add new dog
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     
-    var dogsListener: ListenerRegistration? = nil
+//    var dogsListener: ListenerRegistration? = nil
     
     let addDogViewController = AddDogViewController()
     let dogsTV = UITableView()
     let cellId = "dogListId"
-    var dogs: [Dog] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
+//        let settings = db.settings
+//        settings.areTimestampsInSnapshotsEnabled = true
+//        db.settings = settings
         
-        guard let user = Auth.auth().currentUser else {
-            fatalError("Failed to get current uer")
-        }
-        let uid = user.uid
+//        guard let user = Auth.auth().currentUser else {
+//            fatalError("Failed to get current uer")
+//        }
+//        let uid = user.uid
         
         setupUI()
         setupDogsTV()
         
-        dogsListener = db.collection("users").document(uid).collection("dogs")
-            .addSnapshotListener { querySnapshot, error in
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                
-                var dogs: [Dog] = []
-                
-                for document in documents {
-                    guard let dog = Dog(dictionary: document.data()) else {
-                        print("Cannot convert document to Dog")
-                        continue
-                    }
-                    dogs.append(dog)
-                }
-                
-                self.dogs = dogs
-                self.dogsTV.reloadData()
-        }
+//        dogsListener = db.collection("users").document(uid).collection("dogs")
+//            .addSnapshotListener { querySnapshot, error in
+//                guard let documents = querySnapshot?.documents else {
+//                    print("Error fetching documents: \(error!)")
+//                    return
+//                }
+//
+//                var dogs: [Dog] = []
+//
+//                for document in documents {
+//                    guard let dog = Dog(dictionary: document.data()) else {
+//                        print("Cannot convert document to Dog")
+//                        continue
+//                    }
+//                    dogs.append(dog)
+//                }
+//
+//                self.dogs = dogs
+//                self.dogsTV.reloadData()
+//        }
     }
     
     deinit {
-        dogsListener = nil
+//        dogsListener = nil
     }
     
     private func setupUI() {
@@ -98,13 +97,13 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dogs.count
+        return LocalData.sharedInstance.dogs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        let dog = dogs[indexPath.row]
+        let dog = LocalData.sharedInstance.dogs[indexPath.row]
         cell.textLabel?.text = "\(dog.name) (\(dog.breed))"
         
         return cell
