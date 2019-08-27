@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class LocalData {
     static let sharedInstance = LocalData()
+    
+    let db = Firestore.firestore()
+    
     var dogs: [Dog] = []
     var selectedDogIndex: Int = -1
     

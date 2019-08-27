@@ -49,7 +49,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     private func setupNav() {
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
-            button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
+            updateTitle()
         }
         button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(changeDog), for: .touchUpInside)
@@ -85,6 +85,21 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         logOptionsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateTitle()
+    }
+    
+    private func updateTitle() {
+        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
+            self.button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
+        } else {
+            debugPrint("dogs: \(LocalData.sharedInstance.dogs)")
+            debugPrint("selectedDogIndex: \(LocalData.sharedInstance.selectedDogIndex)")
+        }
+    }
+    
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,8 +131,6 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO - open a view to confirm the log?
-        // two lines below are only for testing
-        LocalData.sharedInstance.selectedDogIndex = indexPath.row
-        button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
+        updateTitle()
     }
 }

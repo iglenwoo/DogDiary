@@ -13,9 +13,7 @@ import FirebaseFirestore
 class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //TODO: add new dog
-//    let db = Firestore.firestore()
     
-//    var dogsListener: ListenerRegistration? = nil
     
     let addDogViewController = AddDogViewController()
     let dogsTV = UITableView()
@@ -24,10 +22,6 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let settings = db.settings
-//        settings.areTimestampsInSnapshotsEnabled = true
-//        db.settings = settings
-        
 //        guard let user = Auth.auth().currentUser else {
 //            fatalError("Failed to get current uer")
 //        }
@@ -35,27 +29,6 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         setupUI()
         setupDogsTV()
-        
-//        dogsListener = db.collection("users").document(uid).collection("dogs")
-//            .addSnapshotListener { querySnapshot, error in
-//                guard let documents = querySnapshot?.documents else {
-//                    print("Error fetching documents: \(error!)")
-//                    return
-//                }
-//
-//                var dogs: [Dog] = []
-//
-//                for document in documents {
-//                    guard let dog = Dog(dictionary: document.data()) else {
-//                        print("Cannot convert document to Dog")
-//                        continue
-//                    }
-//                    dogs.append(dog)
-//                }
-//
-//                self.dogs = dogs
-//                self.dogsTV.reloadData()
-//        }
     }
     
     deinit {
@@ -112,6 +85,7 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: logic
+        LocalData.sharedInstance.selectedDogIndex = indexPath.row
+        //TODO: update title in
     }
 }

@@ -35,13 +35,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     deinit {
-        debugPrint("[\(String(describing: self))] deinit")
         logsListener = nil
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        debugPrint("[\(String(describing: self))] viewDidAppear")
         
         guard let user = Auth.auth().currentUser else {
             fatalError("Failed to get current uer")
@@ -51,7 +49,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     private func setupLogsListener(uid: String) {
-        logsListener = MainTabBarViewController.db.collection("users").document(uid).collection("logs")
+        logsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("logs")
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("Error fetching documents: \(error!)")

@@ -14,7 +14,7 @@ class MainTabBarViewController: UITabBarController {
 
     var authHandle: AuthStateDidChangeListenerHandle?
     
-    static let db = Firestore.firestore()
+//    static let db = Firestore.firestore()
     
     var dogsListener: ListenerRegistration? = nil
     
@@ -23,9 +23,9 @@ class MainTabBarViewController: UITabBarController {
         debugPrint("[\(String(describing: MainTabBarViewController.self))] viewDidLoad")
         
         // Required by Firestore
-        let settings = MainTabBarViewController.db.settings
+        let settings = LocalData.sharedInstance.db.settings
         settings.areTimestampsInSnapshotsEnabled = true
-        MainTabBarViewController.db.settings = settings
+        LocalData.sharedInstance.db.settings = settings
         
         setupVCs()
     }
@@ -62,7 +62,7 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func setupDogsListener(uid: String) {
-        dogsListener = MainTabBarViewController.db.collection("users").document(uid).collection("dogs")
+        dogsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("dogs")
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("Error fetching documents: \(error!)")
