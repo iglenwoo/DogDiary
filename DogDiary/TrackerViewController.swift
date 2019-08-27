@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseUI
+import FirebaseFirestore
 
 enum TrackerOption: String, CaseIterable {
     case Eat
@@ -130,7 +132,22 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO - open a view to confirm the log?
-        updateTitle()
+        var ref: DocumentReference? = nil
+        
+        guard let user = Auth.auth().currentUser else {
+            fatalError("Failed to get current uer")
+        }
+        let actionType = trackerOptions[indexPath.row]
+        let dogId = "todoId"
+        let dogName = "todoName"
+        let timestamp = Timestamp()
+        let newLog = Log(actionType: actionType.rawValue, dogId: dogId, dogName: dogName, timestamp: timestamp)
+        ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").addDocument(data: newLog.dictionary) { (err) in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
     }
 }
