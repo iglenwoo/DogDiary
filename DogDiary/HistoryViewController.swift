@@ -49,7 +49,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     private func setupLogsListener(uid: String) {
-        logsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("logs")
+        logsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("logs").order(by: "timestamp", descending: true)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("Error fetching documents: \(error!)")
