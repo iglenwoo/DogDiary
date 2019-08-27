@@ -18,6 +18,7 @@
 		3979F0692313A50500AA9A1F /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3979F0682313A50500AA9A1F /* LocalData.swift */; };
 		39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C22303D840003E80C7 /* SettingViewController.swift */; };
 		39A680C52303E373003E80C7 /* MyPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A680C42303E373003E80C7 /* MyPackViewController.swift */; };
+		39B52C532313B600001DF4FF /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B52C522313B600001DF4FF /* Log.swift */; };
 		39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */; };
 		39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9B22F6A58C001DA62A /* Utils.swift */; };
 		39E87F9E22F6A5FD001DA62A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E87F9D22F6A5FD001DA62A /* User.swift */; };
@@ -65,6 +66,7 @@
 		3979F0682313A50500AA9A1F /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		39A680C22303D840003E80C7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		39A680C42303E373003E80C7 /* MyPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPackViewController.swift; sourceTree = "<group>"; };
+		39B52C522313B600001DF4FF /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		39E87F9B22F6A58C001DA62A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39E87F9D22F6A5FD001DA62A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		3961BCBB22F650920070D3DB /* DogDiary */ = {
 			isa = PBXGroup;
 			children = (
+				39B52C512313AF3C001DF4FF /* Resources */,
 				39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */,
 				3961BCBC22F650920070D3DB /* AppDelegate.swift */,
 				39E87F9822F6A42C001DA62A /* MainTabBarViewController.swift */,
@@ -143,6 +146,7 @@
 				39E87F9B22F6A58C001DA62A /* Utils.swift */,
 				39E87F9D22F6A5FD001DA62A /* User.swift */,
 				3979F0662313196500AA9A1F /* Dog.swift */,
+				39B52C522313B600001DF4FF /* Log.swift */,
 				3979F0682313A50500AA9A1F /* LocalData.swift */,
 			);
 			path = DogDiary;
@@ -164,6 +168,13 @@
 				3961BCE022F650930070D3DB /* Info.plist */,
 			);
 			path = DogDiaryUITests;
+			sourceTree = "<group>";
+		};
+		39B52C512313AF3C001DF4FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		776D1CD364133CD19879462B /* Pods */ = {
@@ -461,6 +472,7 @@
 			files = (
 				39E87F9C22F6A58C001DA62A /* Utils.swift in Sources */,
 				39F33E142311E47700AF5F5B /* AddDogViewController.swift in Sources */,
+				39B52C532313B600001DF4FF /* Log.swift in Sources */,
 				3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */,
 				39E87F9E22F6A5FD001DA62A /* User.swift in Sources */,
 				39A680C52303E373003E80C7 /* MyPackViewController.swift in Sources */,

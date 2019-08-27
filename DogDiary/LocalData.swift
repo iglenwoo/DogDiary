@@ -12,4 +12,6 @@ class LocalData {
     static let sharedInstance = LocalData()
     var dogs: [Dog] = []
     var selectedDogIndex: Int = -1
+    
+    var logs: [Log] = []
 }
