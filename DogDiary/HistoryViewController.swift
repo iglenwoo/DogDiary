@@ -74,6 +74,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Table view data source
     
+    // polish: sections for each day or month
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

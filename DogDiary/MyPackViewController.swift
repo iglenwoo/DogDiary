@@ -86,6 +86,6 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         LocalData.sharedInstance.selectedDogIndex = indexPath.row
-        //TODO: update title in
+        //TODO: move tabbar to idx 0, and see how fast it updates title with a selected dog name
     }
 }

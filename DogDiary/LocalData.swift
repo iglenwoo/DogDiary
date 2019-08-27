@@ -18,4 +18,12 @@ class LocalData {
     var selectedDogIndex: Int = -1
     
     var logs: [Log] = []
+    
+    func getCurrentDogName() -> String {
+        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
+            return LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name
+        } else {
+            return ""
+        }
+    }
 }

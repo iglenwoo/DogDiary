@@ -93,12 +93,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func updateTitle() {
-        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
-            self.button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
-        } else {
-            debugPrint("dogs: \(LocalData.sharedInstance.dogs)")
-            debugPrint("selectedDogIndex: \(LocalData.sharedInstance.selectedDogIndex)")
-        }
+        self.button.setTitle(LocalData.sharedInstance.getCurrentDogName(), for: .normal)
     }
     
     // MARK: - Table view data source
