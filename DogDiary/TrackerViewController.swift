@@ -75,7 +75,6 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.addSubview(logOptionsTV)
         
         logOptionsTV.separatorStyle = .none
-        logOptionsTV.allowsMultipleSelection = true
         
         logOptionsTV.dataSource = self
         logOptionsTV.delegate = self
@@ -118,15 +117,6 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.text = "\(trackerOptions[indexPath.row])"
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var sectionTitle = ""
-        switch (section) {
-        case 0: sectionTitle = "Choose single/multiple options"
-        default: break
-        }
-        return sectionTitle
     }
     
     // MARK: - Table view delegate
