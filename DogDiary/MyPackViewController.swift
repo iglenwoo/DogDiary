@@ -86,6 +86,7 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         LocalData.sharedInstance.selectedDogIndex = indexPath.row
-        //TODO: move tabbar to idx 0, and see how fast it updates title with a selected dog name
+        //todo: too slow... maybe move the logic in the VC to another cycle?
+        self.navigationController?.popViewController(animated: true)
     }
 }
