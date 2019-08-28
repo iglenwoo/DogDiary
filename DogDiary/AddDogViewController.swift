@@ -20,20 +20,30 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         title = "Dog Details"
+        
+        let saveButton: UIBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTapped))
+        self.navigationItem.rightBarButtonItem = saveButton
 
         setupDogDetails()
         setupDogDetailTableView()
     }
     
+    @objc func saveTapped() {
+        //TODO: save data to Firestore
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     private func setupDogDetails() {
         // TODO: fix
+        dogNameText = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
         dogNameText.placeholder = "Name"
         dogNameCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         dogNameCell.addSubview(dogNameText)
         
+        dogMemoText = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
         dogMemoText.placeholder = "Memo"
         dogMemoCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        dogMemoCell.addSubview(dogNameText)
+        dogMemoCell.addSubview(dogMemoText)
     }
     
     private func setupDogDetailTableView() {
