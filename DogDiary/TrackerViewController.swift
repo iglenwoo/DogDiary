@@ -132,6 +132,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
+                //polish: loading?
+                self.tabBarController?.selectedIndex = 1
             }
         }
     }
