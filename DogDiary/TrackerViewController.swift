@@ -117,6 +117,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        logOptionsTV.deselectRow(at: indexPath, animated: true)
+        
         var ref: DocumentReference? = nil
         
         guard let user = Auth.auth().currentUser else {
@@ -127,13 +129,14 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         let dogName = "todoName"
         let timestamp = Timestamp()
         let newLog = Log(actionType: actionType.rawValue, dogId: dogId, dogName: dogName, timestamp: timestamp)
+        self.tabBarController?.selectedIndex = 1
         ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").addDocument(data: newLog.dictionary) { (err) in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
                 //polish: loading?
-                self.tabBarController?.selectedIndex = 1
+                
             }
         }
     }

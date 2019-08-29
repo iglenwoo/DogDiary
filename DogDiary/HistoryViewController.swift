@@ -99,5 +99,23 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            // TODO: remove in Firestore
+            
+            // remove the item from the data model
+            LocalData.sharedInstance.logs.remove(at: indexPath.row)
+            
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            // Not used in our example, but if you were adding a new row, this is where you would do it.
+        }
+    }
+
 }
 
