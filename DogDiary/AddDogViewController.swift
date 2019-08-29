@@ -34,13 +34,12 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func setupDogDetails() {
-        // TODO: fix
-        dogNameText = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
+        dogNameText = UITextField(frame: dogNameCell.bounds.insetBy(dx: 15, dy: 0))
         dogNameText.placeholder = "Name"
         dogNameCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         dogNameCell.addSubview(dogNameText)
         
-        dogMemoText = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
+        dogMemoText = UITextField(frame: dogMemoCell.bounds.insetBy(dx: 15, dy: 0))
         dogMemoText.placeholder = "Memo"
         dogMemoCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         dogMemoCell.addSubview(dogMemoText)
