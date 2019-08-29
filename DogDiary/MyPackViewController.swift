@@ -12,9 +12,6 @@ import FirebaseFirestore
 
 class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //TODO: add new dog
-    
-    
     let addDogViewController = AddDogViewController()
     let dogsTV = UITableView()
     let cellId = "dogListId"
@@ -22,17 +19,11 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        guard let user = Auth.auth().currentUser else {
-//            fatalError("Failed to get current uer")
-//        }
-//        let uid = user.uid
-        
         setupUI()
         setupDogsTV()
     }
     
     deinit {
-//        dogsListener = nil
     }
     
     private func setupUI() {

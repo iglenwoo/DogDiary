@@ -93,7 +93,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let dateFormatter = DateFormatter()
 //        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm dd"
+        dateFormatter.dateFormat = "h:mm a, MMM d, yy"
         let strDate = dateFormatter.string(from: date)
         cell.textLabel?.text = "\(dogName) \(actionType) \(strDate)"
         
