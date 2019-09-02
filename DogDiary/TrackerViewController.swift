@@ -10,25 +10,6 @@ import UIKit
 import FirebaseUI
 import FirebaseFirestore
 
-enum TrackerOption: String, CaseIterable {
-    case Eat
-    case Poop
-    case Pee
-    case Play
-    case Walk
-    
-    init?(id : Int) {
-        switch id {
-        case 1: self = .Eat
-        case 2: self = .Poop
-        case 3: self = .Pee
-        case 4: self = .Play
-        case 5: self = .Walk
-        default: return nil
-        }
-    }
-}
-
 class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let button =  UIButton(type: .custom)
