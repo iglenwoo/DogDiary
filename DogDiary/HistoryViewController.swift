@@ -59,7 +59,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 var logs: [Log] = []
                 
                 for (_, document) in documents.enumerated() {
-                    guard let log = Log(dictionary: document.data()) else {
+                    guard let log = Log(documentId: document.documentID, dictionary: document.data()) else {
                         print("Cannot convert document(\(document.documentID)) to Dog")
                         continue
                     }

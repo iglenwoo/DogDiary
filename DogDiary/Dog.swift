@@ -10,10 +10,11 @@ import Firebase
 
 
 protocol DocumentSerializable {
-    init?(dictionary:[String:Any])
+    init?(documentId: String?, dictionary:[String:Any])
 }
 
 struct Dog {
+    var documentId: String?
     var name: String
     var breed: String
     var memo: String
@@ -31,14 +32,15 @@ struct Dog {
 
 extension Dog: DocumentSerializable {
     
-    init?(dictionary: [String : Any]) {
+    init?(documentId: String? = nil, dictionary: [String : Any]) {
         guard let name = dictionary["name"] as? String,
             let breed = dictionary["breed"] as? String,
             let memo = dictionary["memo"] as? String,
             let selected = dictionary["selected"] as? Bool
             else { return nil }
         
-        self.init(name: name,
+        self.init(documentId: documentId,
+                  name: name,
                   breed: breed,
                   memo: memo,
                   selected: selected)

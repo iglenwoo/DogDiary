@@ -128,7 +128,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         let dogId = "todoId"
         let dogName = "todoName"
         let timestamp = Timestamp()
-        let newLog = Log(actionType: actionType.rawValue, dogId: dogId, dogName: dogName, timestamp: timestamp)
+        let newLog = Log(documentId: nil, actionType: actionType.rawValue, dogId: dogId, dogName: dogName, timestamp: timestamp)
         self.tabBarController?.selectedIndex = 1
         ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").addDocument(data: newLog.dictionary) { (err) in
             if let err = err {

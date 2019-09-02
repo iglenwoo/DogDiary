@@ -9,6 +9,7 @@
 import Firebase
 
 struct Log {
+    var documentId: String?
     var actionType: String
     var dogId: String
     var dogName: String
@@ -26,14 +27,15 @@ struct Log {
 
 extension Log: DocumentSerializable {
     
-    init?(dictionary: [String : Any]) {
+    init?(documentId: String? = nil, dictionary: [String : Any]) {
         guard let actionType = dictionary["actionType"] as? String,
             let dogId = dictionary["dogId"] as? String,
             let dogName = dictionary["dogName"] as? String,
             let timestamp = dictionary["timestamp"] as? Timestamp
             else { return nil }
         
-        self.init(actionType: actionType,
+        self.init(documentId: documentId,
+                  actionType: actionType,
                   dogId: dogId,
                   dogName: dogName,
                   timestamp: timestamp)
