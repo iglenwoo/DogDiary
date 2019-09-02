@@ -23,6 +23,11 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupDogsTV()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.dogsTV.reloadData()
+    }
+    
     deinit {
     }
     
