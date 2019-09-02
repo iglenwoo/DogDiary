@@ -85,4 +85,30 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //todo: too slow... maybe move the logic in the VC to another cycle?
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let user = Auth.auth().currentUser else {
+                fatalError("Failed to get current uer")
+            }
+            guard let documentId = LocalData.sharedInstance.dogs[indexPath.row].documentId else {
+                print("Fatiled to get a dog documentId")
+                return
+            }
+            LocalData.sharedInstance.db.collection("users").document(user.uid).collection("dogs").document(documentId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            // polish loading
+            
+            // remove the item from the data model
+            LocalData.sharedInstance.dogs.remove(at: indexPath.row)
+            
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }

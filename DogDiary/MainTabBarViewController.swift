@@ -72,7 +72,7 @@ class MainTabBarViewController: UITabBarController {
                 var dogs: [Dog] = []
                 
                 for (index, document) in documents.enumerated() {
-                    guard let dog = Dog(dictionary: document.data()) else {
+                    guard let dog = Dog(documentId: document.documentID, dictionary: document.data()) else {
                         print("Cannot convert document(\(document.documentID)) to Dog")
                         continue
                     }
