@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import FirebaseUI
+import FirebaseFirestore
 
 class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dogDetailTableView: UITableView = UITableView()
     var dogNameText: UITextField = UITextField()
     var dogNameCell: UITableViewCell = UITableViewCell()
+    var dogBreedText: UITextField = UITextField()
+    var dogBreedCell: UITableViewCell = UITableViewCell()
     var dogMemoText: UITextField = UITextField()
     var dogMemoCell: UITableViewCell = UITableViewCell()
     
@@ -29,8 +33,53 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @objc func saveTapped() {
-        //TODO: save data to Firestore
-        self.navigationController?.popViewController(animated: true)
+        var ref: DocumentReference? = nil
+        
+        guard let dogName = dogNameText.text, !dogName.isEmpty else {
+            displayAlert(message: "Please enter your dog name")
+            return
+        }
+        let dogMemo = dogNameText.text ?? ""
+        let dogBreed = dogBreedText.text ?? ""
+        
+        guard let user = Auth.auth().currentUser else {
+            fatalError("Failed to get current uer")
+        }
+        
+        let newDog = Dog(documentId: nil, name: dogName, breed: dogBreed, memo: dogMemo, selected: false)
+        
+        let alert = getLoadingAlert()
+        present(alert, animated: true, completion: nil)
+        
+        ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("dogs").addDocument(data: newDog.dictionary) { (err) in
+            if let err = err {
+                print("Error adding document: \(err)")
+                self.dismiss(animated: false, completion: nil)
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                self.dismiss(animated: false, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+    }
+    
+    private func getLoadingAlert() -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        return alert
+    }
+    
+    private func displayAlert(message: String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func setupDogDetails() {
@@ -38,6 +87,11 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dogNameText.placeholder = "Name"
         dogNameCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         dogNameCell.addSubview(dogNameText)
+        
+        dogBreedText = UITextField(frame: dogBreedCell.bounds.insetBy(dx: 15, dy: 0))
+        dogBreedText.placeholder = "Breed"
+        dogBreedCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        dogBreedCell.addSubview(dogBreedText)
         
         dogMemoText = UITextField(frame: dogMemoCell.bounds.insetBy(dx: 15, dy: 0))
         dogMemoText.placeholder = "Memo"
@@ -69,7 +123,7 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0: return 2
+        case 0: return 3
         default: fatalError("Unknown number of sections")
         }
     }
@@ -79,7 +133,8 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0:
             switch(indexPath.row) {
             case 0: return self.dogNameCell
-            case 1: return self.dogMemoCell
+            case 1: return self.dogBreedCell
+            case 2: return self.dogMemoCell
             default: fatalError("Unknown row in section 0")
             }
         default: fatalError("Unknown section")
