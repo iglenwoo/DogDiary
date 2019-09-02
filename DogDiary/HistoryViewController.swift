@@ -35,7 +35,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     deinit {
-        logsListener = nil
+        logsListener?.remove()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -103,8 +103,21 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
-            // TODO: remove in Firestore
+            guard let user = Auth.auth().currentUser else {
+                fatalError("Failed to get current uer")
+            }
+            guard let documentId = LocalData.sharedInstance.logs[indexPath.row].documentId else {
+                print("Fatiled to get documentId")
+                return
+            }
+            LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").document(documentId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            // polish loading
             
             // remove the item from the data model
             LocalData.sharedInstance.logs.remove(at: indexPath.row)
@@ -112,8 +125,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-        } else if editingStyle == .insert {
-            // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
 
