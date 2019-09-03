@@ -21,6 +21,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         title = "History"
         
+        setupLogsTV()
+    }
+    
+    deinit {
+        logsListener?.remove()
+    }
+    
+    private func setupLogsTV() {
         logsTV.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logsTV)
         
@@ -33,13 +41,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         logsTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         logsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
-    deinit {
-        logsListener?.remove()
-    }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         guard let user = Auth.auth().currentUser else {
             fatalError("Failed to get current uer")
@@ -70,6 +74,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 LocalData.sharedInstance.logs = logs
                 self.logsTV.reloadData()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        logsListener?.remove()
     }
     
     // MARK: - Table view data source
