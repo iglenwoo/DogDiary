@@ -30,6 +30,10 @@ class SettingViewController: UIViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
+        LocalData.sharedInstance.dogs = []
+        LocalData.sharedInstance.logs = []
+        LocalData.sharedInstance.selectedDogIndex = -1
+        
         try! Auth.auth().signOut()
     }
 }
