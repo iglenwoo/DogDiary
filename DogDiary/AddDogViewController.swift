@@ -57,6 +57,9 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else {
                 print("Document added with ID: \(ref!.documentID)")
                 self.view.activityStopAnimating()
+                self.dogNameText.text = ""
+                self.dogBreedText.text = ""
+                self.dogMemoText.text = ""
                 self.navigationController?.popViewController(animated: true)
             }
         }
