@@ -26,4 +26,12 @@ class LocalData {
             return ""
         }
     }
+    
+    func getCurrentDog() -> Dog? {
+        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
+            return LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex]
+        } else {
+            return nil
+        }
+    }
 }

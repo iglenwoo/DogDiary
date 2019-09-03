@@ -99,6 +99,14 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         logOptionsTV.deselectRow(at: indexPath, animated: true)
+        guard let selectedDog = LocalData.sharedInstance.getCurrentDog() else {
+            print("Choose your dog")
+            return
+        }
+        guard let dogId = selectedDog.documentId else {
+            print("documentId is nil (\(selectedDog.name))")
+            return
+        }
         
         var ref: DocumentReference? = nil
         
@@ -106,10 +114,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError("Failed to get current uer")
         }
         let actionType = trackerOptions[indexPath.row]
-        let dogId = "todoId"
-        let dogName = "todoName"
         let timestamp = Timestamp()
-        let newLog = Log(documentId: nil, actionType: actionType.rawValue, dogId: dogId, dogName: dogName, timestamp: timestamp)
+        let newLog = Log(documentId: nil, actionType: actionType.rawValue, dogId: dogId, dogName: selectedDog.name, timestamp: timestamp)
         self.tabBarController?.selectedIndex = 1
         ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").addDocument(data: newLog.dictionary) { (err) in
             if let err = err {
