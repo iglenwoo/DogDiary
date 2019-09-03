@@ -7,23 +7,30 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingViewController: UIViewController {
+
+    let logOutButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Setting"
+        
+        setupLogOutButton()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupLogOutButton() {
+        logOutButton.backgroundColor = .green
+        logOutButton.setTitle("Log out", for: .normal)
+        logOutButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        logOutButton.center = self.view.center
+        
+        print("called")
+        self.view.addSubview(logOutButton)
     }
-    */
-
+    
+    @objc func buttonAction(sender: UIButton!) {
+        try! Auth.auth().signOut()
+    }
 }
