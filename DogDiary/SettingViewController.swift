@@ -26,7 +26,6 @@ class SettingViewController: UIViewController {
         logOutButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         logOutButton.center = self.view.center
         
-        print("called")
         self.view.addSubview(logOutButton)
     }
     

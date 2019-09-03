@@ -14,8 +14,6 @@ class MainTabBarViewController: UITabBarController {
 
     var authHandle: AuthStateDidChangeListenerHandle?
     
-//    static let db = Firestore.firestore()
-    
     var dogsListener: ListenerRegistration? = nil
     
     override func viewDidLoad() {
