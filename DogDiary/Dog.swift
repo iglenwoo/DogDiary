@@ -18,14 +18,12 @@ struct Dog {
     var name: String
     var breed: String
     var memo: String
-    var selected: Bool
     
     var dictionary: [String: Any] {
         return [
             "name": name,
             "breed": breed,
-            "memo": memo,
-            "selected": selected
+            "memo": memo
         ]
     }
 }
@@ -35,15 +33,13 @@ extension Dog: DocumentSerializable {
     init?(documentId: String? = nil, dictionary: [String : Any]) {
         guard let name = dictionary["name"] as? String,
             let breed = dictionary["breed"] as? String,
-            let memo = dictionary["memo"] as? String,
-            let selected = dictionary["selected"] as? Bool
+            let memo = dictionary["memo"] as? String
             else { return nil }
         
         self.init(documentId: documentId,
                   name: name,
                   breed: breed,
-                  memo: memo,
-                  selected: selected)
+                  memo: memo)
     }
     
 }

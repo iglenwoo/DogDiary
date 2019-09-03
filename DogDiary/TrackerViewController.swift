@@ -69,9 +69,10 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
-            updateTitle()
+        if let currentDogName = LocalData.sharedInstance.getCurrentDog()?.name {
+            self.button.setTitle(currentDogName, for: .normal)
         } else {
+            self.button.setTitle("", for: .normal)
             let alert = UIAlertController(title: "Select your dog?", message: "Please select your dog to log his or her activity", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 self.navigationController?.pushViewController(self.myPackVC, animated: true)
@@ -80,16 +81,11 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.view.activityStartAnimating(activityColor: .white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
             self.present(alert, animated: true)
         }
-        updateTitle()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.view.activityStopAnimating()
-    }
-    
-    private func updateTitle() {
-        self.button.setTitle(LocalData.sharedInstance.getCurrentDogName(), for: .normal)
     }
     
     // MARK: - Table view data source

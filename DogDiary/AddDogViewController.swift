@@ -46,7 +46,7 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError("Failed to get current uer")
         }
         
-        let newDog = Dog(documentId: nil, name: dogName, breed: dogBreed, memo: dogMemo, selected: false)
+        let newDog = Dog(documentId: nil, name: dogName, breed: dogBreed, memo: dogMemo)
         
         self.view.activityStartAnimating(activityColor: .white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         
