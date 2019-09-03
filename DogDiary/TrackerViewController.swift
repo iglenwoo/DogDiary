@@ -42,7 +42,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func changeDog() {
-        // TODO: Show a picker to choose a dog
+        // polish: Show a picker to choose a dog
         button.setTitle(LocalData.sharedInstance.dogs[LocalData.sharedInstance.selectedDogIndex].name, for: .normal)
     }
     
@@ -67,8 +67,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         logOptionsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateTitle()
     }

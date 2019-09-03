@@ -23,8 +23,8 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupDogsTV()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.dogsTV.reloadData()
     }
     
@@ -82,7 +82,6 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         LocalData.sharedInstance.selectedDogIndex = indexPath.row
-        //todo: too slow... maybe move the logic in the VC to another cycle?
         self.navigationController?.popViewController(animated: true)
     }
     

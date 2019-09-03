@@ -79,7 +79,7 @@ class MainTabBarViewController: UITabBarController {
                     
                     if (dog.selected) {
                         LocalData.sharedInstance.selectedDogIndex = index
-                        //todo: bind selectedIdx || refactor `selected`
+                        //polish: bind selectedIdx || refactor `selected`
                     }
                     dogs.append(dog)
                 }
