@@ -24,10 +24,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupLogsTV()
     }
     
-    deinit {
-        logsListener?.remove()
-    }
-    
     private func setupLogsTV() {
         logsTV.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logsTV)
@@ -44,16 +40,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.logsTV.reloadData()
+        setupLogsListener()
+    }
+
+    private func setupLogsListener() {
         guard let user = Auth.auth().currentUser else {
             fatalError("Failed to get current uer")
         }
         
-        setupLogsListener(uid: user.uid)
-    }
-
-    private func setupLogsListener(uid: String) {
-        logsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("logs").order(by: "timestamp", descending: true)
+        logsListener = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("logs").order(by: "timestamp", descending: true)
             .addSnapshotListener { querySnapshot, error in
                 guard let documents = querySnapshot?.documents else {
                     print("Error fetching documents: \(error!)")

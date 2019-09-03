@@ -12,6 +12,8 @@ import FirebaseFirestore
 
 class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var dogsListener: ListenerRegistration? = nil
+    
     let addDogViewController = AddDogViewController()
     let dogsTV = UITableView()
     let cellId = "dogListId"
@@ -26,9 +28,7 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dogsTV.reloadData()
-    }
-    
-    deinit {
+        setupDogsListener()
     }
     
     private func setupUI() {
@@ -57,6 +57,39 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dogsTV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         dogsTV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         dogsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    private func setupDogsListener() {
+        guard let user = Auth.auth().currentUser else {
+            fatalError("Failed to get current uer")
+        }
+        
+        dogsListener = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("dogs")
+            .addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                
+                var dogs: [Dog] = []
+                
+                for (_, document) in documents.enumerated() {
+                    guard let dog = Dog(documentId: document.documentID, dictionary: document.data()) else {
+                        print("Cannot convert document(\(document.documentID)) to Dog")
+                        continue
+                    }
+                    
+                    dogs.append(dog)
+                }
+                
+                LocalData.sharedInstance.dogs = dogs
+                self.dogsTV.reloadData()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.dogsListener?.remove()
     }
     
     // MARK: - Table view data source

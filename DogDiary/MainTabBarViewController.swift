@@ -14,7 +14,7 @@ class MainTabBarViewController: UITabBarController {
 
     var authHandle: AuthStateDidChangeListenerHandle?
     
-    var dogsListener: ListenerRegistration? = nil
+//    var dogsListener: ListenerRegistration? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,36 +55,36 @@ class MainTabBarViewController: UITabBarController {
             debugPrint("[\(String(describing: MainTabBarViewController.self))] Current user is \"\(user.debugDescription)\"")
             
             self.selectedIndex = 0
-            setupDogsListener(uid: user.uid)
+//            setupDogsListener(uid: user.uid)
         }
     }
     
-    private func setupDogsListener(uid: String) {
-        dogsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("dogs")
-            .addSnapshotListener { querySnapshot, error in
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                
-                var dogs: [Dog] = []
-                
-                for (index, document) in documents.enumerated() {
-                    guard let dog = Dog(documentId: document.documentID, dictionary: document.data()) else {
-                        print("Cannot convert document(\(document.documentID)) to Dog")
-                        continue
-                    }
-                    
-                    if (dog.selected) {
-                        LocalData.sharedInstance.selectedDogIndex = index
-                        //polish: bind selectedIdx || refactor `selected`
-                    }
-                    dogs.append(dog)
-                }
-                
-                LocalData.sharedInstance.dogs = dogs
-        }
-    }
+//    private func setupDogsListener(uid: String) {
+//        dogsListener = LocalData.sharedInstance.db.collection("users").document(uid).collection("dogs")
+//            .addSnapshotListener { querySnapshot, error in
+//                guard let documents = querySnapshot?.documents else {
+//                    print("Error fetching documents: \(error!)")
+//                    return
+//                }
+//
+//                var dogs: [Dog] = []
+//
+//                for (index, document) in documents.enumerated() {
+//                    guard let dog = Dog(documentId: document.documentID, dictionary: document.data()) else {
+//                        print("Cannot convert document(\(document.documentID)) to Dog")
+//                        continue
+//                    }
+//
+//                    if (dog.selected) {
+//                        LocalData.sharedInstance.selectedDogIndex = index
+//                        //polish: bind selectedIdx || refactor `selected`
+//                    }
+//                    dogs.append(dog)
+//                }
+//
+//                LocalData.sharedInstance.dogs = dogs
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
