@@ -28,13 +28,13 @@ class MainTabBarViewController: UITabBarController {
     
     private func setupVCs() {
         let trackVC = TrackerViewController()
-        trackVC.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "animal-footprint.png"), tag: 0)
+        trackVC.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "pet.png"), tag: 0)
     
         let historyVC = HistoryViewController()
-        historyVC.tabBarItem = UITabBarItem(title: "Log", image: #imageLiteral(resourceName: "text-list.png"), tag: 1)
+        historyVC.tabBarItem = UITabBarItem(title: "Log", image: #imageLiteral(resourceName: "list.png"), tag: 1)
     
         let settingVC = SettingViewController()
-        settingVC.tabBarItem = UITabBarItem(title: "Setting", image: #imageLiteral(resourceName: "sun.png"), tag: 2)
+        settingVC.tabBarItem = UITabBarItem(title: "Setting", image: #imageLiteral(resourceName: "setting.png"), tag: 2)
     
         let vcs = [trackVC, historyVC, settingVC]
         self.viewControllers = vcs.map { UINavigationController(rootViewController: $0) }

@@ -10,9 +10,9 @@
 		39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */; };
 		3931671B231CCC0900805787 /* TrackerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3931671A231CCC0900805787 /* TrackerOption.swift */; };
 		3959561E231E277D00AD1D43 /* LoadingViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959561D231E277D00AD1D43 /* LoadingViewExtension.swift */; };
-		39595626231E4C4F00AD1D43 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595625231E4C4F00AD1D43 /* sun.png */; };
-		39595628231E4C6300AD1D43 /* animal-footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595627231E4C6300AD1D43 /* animal-footprint.png */; };
-		3959562A231E4C7300AD1D43 /* text-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595629231E4C7300AD1D43 /* text-list.png */; };
+		3959563A231E525F00AD1D43 /* pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595637231E525F00AD1D43 /* pet.png */; };
+		3959563B231E525F00AD1D43 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595638231E525F00AD1D43 /* setting.png */; };
+		3959563C231E525F00AD1D43 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 39595639231E525F00AD1D43 /* list.png */; };
 		3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBC22F650920070D3DB /* AppDelegate.swift */; };
 		3961BCBF22F650920070D3DB /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* TrackerViewController.swift */; };
 		3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* HistoryViewController.swift */; };
@@ -57,9 +57,9 @@
 		39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3931671A231CCC0900805787 /* TrackerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerOption.swift; sourceTree = "<group>"; };
 		3959561D231E277D00AD1D43 /* LoadingViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewExtension.swift; sourceTree = "<group>"; };
-		39595625231E4C4F00AD1D43 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
-		39595627231E4C6300AD1D43 /* animal-footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animal-footprint.png"; sourceTree = "<group>"; };
-		39595629231E4C7300AD1D43 /* text-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list.png"; sourceTree = "<group>"; };
+		39595637231E525F00AD1D43 /* pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet.png; sourceTree = "<group>"; };
+		39595638231E525F00AD1D43 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		39595639231E525F00AD1D43 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		3961BCB922F650920070D3DB /* DogDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCBC22F650920070D3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3961BCBE22F650920070D3DB /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -185,9 +185,9 @@
 		39B52C512313AF3C001DF4FF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				39595625231E4C4F00AD1D43 /* sun.png */,
-				39595627231E4C6300AD1D43 /* animal-footprint.png */,
-				39595629231E4C7300AD1D43 /* text-list.png */,
+				39595639231E525F00AD1D43 /* list.png */,
+				39595637231E525F00AD1D43 /* pet.png */,
+				39595638231E525F00AD1D43 /* setting.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -324,11 +324,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39595626231E4C4F00AD1D43 /* sun.png in Resources */,
+				3959563B231E525F00AD1D43 /* setting.png in Resources */,
+				3959563C231E525F00AD1D43 /* list.png in Resources */,
+				3959563A231E525F00AD1D43 /* pet.png in Resources */,
 				3961BCC622F650930070D3DB /* Assets.xcassets in Resources */,
-				3959562A231E4C7300AD1D43 /* text-list.png in Resources */,
 				39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */,
-				39595628231E4C6300AD1D43 /* animal-footprint.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
