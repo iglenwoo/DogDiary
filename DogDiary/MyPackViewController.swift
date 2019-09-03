@@ -84,6 +84,19 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 LocalData.sharedInstance.dogs = dogs
                 self.dogsTV.reloadData()
+                
+                self.navigateToAddIfNoDog()
+        }
+    }
+    
+    private func navigateToAddIfNoDog() {
+        if LocalData.sharedInstance.dogs.count == 0 {
+            let alert = UIAlertController(title: "Add your dogs", message: "Please add your dogs to start activity logging", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.navigationController?.pushViewController(self.addDogViewController, animated: true)
+            }))
+            
+            self.present(alert, animated: true)
         }
     }
     
@@ -127,6 +140,7 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("Fatiled to get a dog documentId")
                 return
             }
+            
             LocalData.sharedInstance.db.collection("users").document(user.uid).collection("dogs").document(documentId).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
@@ -134,13 +148,14 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     print("Document successfully removed!")
                 }
             }
-            // polish loading
-            
+
             // remove the item from the data model
             LocalData.sharedInstance.dogs.remove(at: indexPath.row)
             
             // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            self.navigateToAddIfNoDog()
         }
     }
 }
