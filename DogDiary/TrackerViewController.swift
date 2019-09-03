@@ -18,6 +18,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     let logOptionsTV = UITableView()
     let cellId = "cellId"
     
+    let myPackVC = MyPackViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,15 +32,12 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func setupNav() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myPackTapped))
+        
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
-        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
-            updateTitle()
-        }
         button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(changeDog), for: .touchUpInside)
         navigationItem.titleView = button
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "My Pack", style: .plain, target: self, action: #selector(myPackTapped))
     }
     
     @objc func changeDog() {
@@ -47,7 +46,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func myPackTapped() {
-        let myPackVC = MyPackViewController()
+//        let myPackVC = MyPackViewController()
         navigationController?.pushViewController(myPackVC, animated: true)
     }
     
@@ -70,7 +69,23 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if LocalData.sharedInstance.selectedDogIndex > -1 && LocalData.sharedInstance.selectedDogIndex <= LocalData.sharedInstance.dogs.count - 1 {
+            updateTitle()
+        } else {
+            let alert = UIAlertController(title: "Select your dog?", message: "Please select your dog to log his or her activity", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.navigationController?.pushViewController(self.myPackVC, animated: true)
+            }))
+            
+            self.view.activityStartAnimating(activityColor: .white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
+            self.present(alert, animated: true)
+        }
         updateTitle()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.view.activityStopAnimating()
     }
     
     private func updateTitle() {
