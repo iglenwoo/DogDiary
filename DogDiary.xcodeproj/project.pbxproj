@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		39125A6E2300CF5B00D1D167 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */; };
 		3931671B231CCC0900805787 /* TrackerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3931671A231CCC0900805787 /* TrackerOption.swift */; };
+		3959561E231E277D00AD1D43 /* LoadingViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959561D231E277D00AD1D43 /* LoadingViewExtension.swift */; };
 		3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBC22F650920070D3DB /* AppDelegate.swift */; };
 		3961BCBF22F650920070D3DB /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCBE22F650920070D3DB /* TrackerViewController.swift */; };
 		3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961BCC022F650920070D3DB /* HistoryViewController.swift */; };
@@ -52,6 +53,7 @@
 		126DDCD6C8F641580BA17B75 /* Pods-DogDiaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDiaryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDiaryUITests/Pods-DogDiaryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39125A6D2300CF5B00D1D167 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3931671A231CCC0900805787 /* TrackerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerOption.swift; sourceTree = "<group>"; };
+		3959561D231E277D00AD1D43 /* LoadingViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewExtension.swift; sourceTree = "<group>"; };
 		3961BCB922F650920070D3DB /* DogDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3961BCBC22F650920070D3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3961BCBE22F650920070D3DB /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				3979F0662313196500AA9A1F /* Dog.swift */,
 				39B52C522313B600001DF4FF /* Log.swift */,
 				3979F0682313A50500AA9A1F /* LocalData.swift */,
+				3959561D231E277D00AD1D43 /* LoadingViewExtension.swift */,
 			);
 			path = DogDiary;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				3961BCC122F650920070D3DB /* HistoryViewController.swift in Sources */,
 				39E87F9E22F6A5FD001DA62A /* User.swift in Sources */,
 				39A680C52303E373003E80C7 /* MyPackViewController.swift in Sources */,
+				3959561E231E277D00AD1D43 /* LoadingViewExtension.swift in Sources */,
 				39E87F9922F6A42C001DA62A /* MainTabBarViewController.swift in Sources */,
 				3961BCBD22F650920070D3DB /* AppDelegate.swift in Sources */,
 				39A680C32303D840003E80C7 /* SettingViewController.swift in Sources */,

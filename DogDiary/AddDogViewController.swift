@@ -48,32 +48,19 @@ class AddDogViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let newDog = Dog(documentId: nil, name: dogName, breed: dogBreed, memo: dogMemo, selected: false)
         
-        let alert = getLoadingAlert()
-        present(alert, animated: true, completion: nil)
+        self.view.activityStartAnimating(activityColor: .white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         
         ref = LocalData.sharedInstance.db.collection("users").document(user.uid).collection("dogs").addDocument(data: newDog.dictionary) { (err) in
             if let err = err {
                 print("Error adding document: \(err)")
-                self.dismiss(animated: false, completion: nil)
+                self.view.activityStopAnimating()
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                self.dismiss(animated: false, completion: nil)
+                self.view.activityStopAnimating()
                 self.navigationController?.popViewController(animated: true)
             }
         }
         
-    }
-    
-    private func getLoadingAlert() -> UIAlertController {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        
-        alert.view.addSubview(loadingIndicator)
-        return alert
     }
     
     private func displayAlert(message: String) {
