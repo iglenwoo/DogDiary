@@ -119,7 +119,11 @@ class MyPackViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         let dog = LocalData.sharedInstance.dogs[indexPath.row]
-        cell.textLabel?.text = "\(dog.name) (\(dog.breed))"
+        var dogLabel = "\(dog.name)"
+        if !dog.breed.isEmpty {
+            dogLabel.append(contentsOf: "(\(dog.breed))")
+        }
+        cell.textLabel?.text = dogLabel
         
         return cell
     }
